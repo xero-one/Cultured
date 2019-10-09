@@ -1,0 +1,16 @@
+* Rest Countries (restcountries.eu):
+    - https://restcountries.eu/rest/v2/alpha/{countryCode}
+    - Free API with no key needed, just the above URL 
+    - Potential important data points: 
+        * root.capital
+        * root.alpha3code
+        * root.currencies.code
+        * root.flag
+        * root.languages.name
+        * root.population
+
+* Currency Layer (currencylayer.com):
+    - http://www.apilayer.net/api/live?access_key={something}
+    - http://apilayer.net/api/convert?access_key={something}&from={USD}&to={user}&amount={integer}
+    - 7b76d8e2657d9025c184dc8a25be89c3
+    - https://api.exchangeratesapi.io/latest?symbols={pair1,pair2}
