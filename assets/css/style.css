@@ -14,6 +14,16 @@ html {
     height: 4vh;
 }
 
+/* .logo-small2 {
+    display: block;
+    background-image: url(../images/right-arrow.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 4vh;
+} */
+
 .logo-medium {
     display: block;
     background-image: url(../images/LogoFake.svg);
