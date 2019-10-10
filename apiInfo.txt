@@ -14,3 +14,4 @@
     - http://apilayer.net/api/convert?access_key={something}&from={USD}&to={user}&amount={integer}
     - 7b76d8e2657d9025c184dc8a25be89c3
     - https://api.exchangeratesapi.io/latest?symbols={pair1,pair2}
+    
