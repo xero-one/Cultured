@@ -1,0 +1,67 @@
+html {
+    background: pink;
+}
+
+
+/*Special elements (start)--------------------------------*/
+.logo-small {
+    display: block;
+    background-image: url(../images/LogoFake.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 4vh;
+}
+
+.logo-medium {
+    display: block;
+    background-image: url(../images/LogoFake.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 8vh;
+}
+
+.logo-large {
+    display: block;
+    background-image: url(../images/LogoFake.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 12vh;
+}
+
+.header {
+    width: 100%;
+    height: 9vh;
+    background: white;
+}
+/*Special elements (start)--------------------------------*/
+
+/*Junk spaces (start)-----------------------------------*/
+.blank-space-1 {
+    width: auto;
+    height: 30vh;
+}
+
+.blank-space-2 {
+    width: auto;
+    height: 40vh;
+}
+/*Junk section (end)-----------------------------------*/
+
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.input-field {
+    background: white;
+    color: red;
+    border-radius: 3px;
+    border: black;
+}
