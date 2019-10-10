@@ -1,4 +1,4 @@
-var userQuery = "china";//$("#user-query").val();
+var userQuery = "china";//$("#country-name").val();
 
 $.ajax({
     url: "https://newsapi.org/v2/top-headlines?q="+userQuery+"&apiKey=fb3a00f195804d52a07c98c270c813ad&pageSize=5",

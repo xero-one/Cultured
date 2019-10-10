@@ -1,4 +1,4 @@
-var userQury = "fra"; //$("#user-query").val();
+var userQury = "fra"; //$("#country-name").val();
 
 $.ajax({
     url: "https://restcountries.eu/rest/v2/alpha/" + userQury,
