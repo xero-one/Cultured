@@ -26,9 +26,7 @@
             </select>
         </div>
 
-        <!--<div id="demo"></div>-->
         <div id="countryMoney"></div>
-        <!--<div id="usDiv"> $<span id="usDollar"></span></div>-->
         <h4>Use Our Calculator to Convert Your Money</h4>
         <label for="boxA">Amount of Dollars to be converted</label>
         <input id="boxA" type="text" oninput="countrySelected();" />
@@ -37,9 +35,6 @@
         <label for="boxC">Your Dollars in That Country's Currency</label>
         <input id="boxC" type="text">
     </div>
-
-
-
 
 
 
@@ -410,10 +405,10 @@
         }).then(function (response) {
             console.log(response);
 
-            //$("#usDollar").text(response.rates.USD);
+            
             rates = response.rates;
             console.log(rates);
-            //need to code the drop-down with var stuff
+            
 
         })
 
@@ -431,7 +426,7 @@
 
         function countrySelected() {
             var selection = document.getElementById("dropDownList").value;
-            //document.getElementById("demo").innerHTML = "You selected: " + selection;
+            
             console.log(rates);
             console.log(rates[selection]);
             $("#countryMoney").text("Currency is valued at " + rates[selection] + " for every 1 US Dollar")
