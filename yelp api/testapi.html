@@ -13,7 +13,6 @@
         
     </p>
     <div id="image">
-
     </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -58,8 +57,12 @@
         console.log(link)
         var imageTag = $("<img>");
 
-        imageTag.attr("src", url)
-        $("#image").append(imageTag)
+
+        imageTag.attr("src", url);
+        imageTag.attr("style", "width: 300px; height; 350px");
+
+        $("#image").append(imageTag)        
+
       }
  
     })
