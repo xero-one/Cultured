@@ -1,7 +1,8 @@
 $("#country-name").change(function () {
-    var userQuery = $("#country-name option:selected").val();
+    var userQuery = $("#country-name option:selected").text();
     //$('input[name="question"]:checked').val();
     // console.log("hello:", userQuery);
+    console.log("look here: https://newsapi.org/v2/top-headlines?q=" + userQuery + "&apiKey=fb3a00f195804d52a07c98c270c813ad&pageSize=5");
     $.ajax({
         url: "https://newsapi.org/v2/top-headlines?q=" + userQuery + "&apiKey=fb3a00f195804d52a07c98c270c813ad&pageSize=5",
         method: "GET"
