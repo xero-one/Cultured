@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Yelp restaurants</title>
+</head>
+
+<body>
+    <p id="business">
+        
+    </p>
+    <div id="image">
+
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Performing GET requests to the OMDB API and logging the responses to the console
+
+
+
+    function yelpQueryURL(userLocation, userLocale) {
+    console.log(userLocation);
+    var url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search`;
+    var yelpKey =
+      "DhUOw_5_G2RDrJSC6t0Y4rZzCx3INn7_0Y-A-LXSE6j4m7-9UEoSiyqEsJ5ATicLkHT40LansrK9dAW1tTlSHRsR2wV91Cc5MytlXNVR65R4bdlCS-Ekpk3vQ0OfXXYx";
+    $.ajax({
+      type: "GET",
+      url: url,
+      headers: {
+        Authorization: "Bearer " + yelpKey
+      },
+      data: {
+        term: "local restaurants",
+        location: userLocation,
+        locale: userLocale,
+        limit: 5
+      }
+      
+    })
+    
+    .then(function (response) {
+
+      console.log(response);
+      // Create img tag - <img>
+      var imageTag = $("<img>");
+      // Add src attribute to the img tag - <img src="" > 
+      var url = response.businesses[0].image_url;
+      console.log(url)
+    //   "src" adds url to src attribute
+      imageTag.attr("src", url)
+      // to reference ids in html tag use #
+      $("#image").append(imageTag)
+
+    })
+    
+    .catch(function (error) {
+        console.log(error)
+    }) 
+}   
+
+// ---------------------------------------------------------
+    yelpQueryURL("Switzerland","en_SG")
+    console.log("Because our AJAX requests are asynchronous, this line of code will most likely log first");
+    
+  </script>
+
+</body>
+
+</html>
+
