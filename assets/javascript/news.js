@@ -7,10 +7,20 @@ $.ajax({
     console.log(res);
     var articles = res.articles;
     for(var i = 0; i < articles.length; i++){
-        $("#news").append(articles[i].title,"<br>");
-        $("#news").append(articles[i].url,"<br>");
-        console.log(articles[i].title);
-        console.log(articles[i].url);
+        var news = $("<li>");
+        
+        var link = $("<a>");
+        link.attr("href",articles[i].url);
+        link.attr("target","_blank");
+        news.append(link);
+        link.text(articles[i].title);
+
+        // $(".news").append(articles[i].title,"<br>");
+        // $(".news").append(articles[i].url,"<br>");
+        // console.log(articles[i].title);
+        // console.log(articles[i].url);
+        news.append(link);
+        $(".news-articles").append(news);
     }
 });
 
