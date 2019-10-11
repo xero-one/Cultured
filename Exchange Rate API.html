@@ -7,6 +7,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        .container {
+            width: 30%;
+        }
+    </style>
 
 </head>
 
@@ -15,15 +20,15 @@
     <div class="container">
         <h3>Convert Your Currency</h3>
         <div class="input-field">
-            <select>
+            <select id="dropDownList" onchange="countrySelected()">
                 <option value="" disabled selected>Choose your option</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="1"></option>
             </select>
         </div>
         <div id="usDiv">US Dollar $<span id="usDollar"></span></div>
     </div>
+
+    <p id="demo"></p>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -36,7 +41,7 @@
         });
 
         var queryURL = "https://api.exchangerate-api.com/v4/latest/USD"
-
+        var rates;
 
         $.ajax({
             url: queryURL,
@@ -45,10 +50,15 @@
             console.log(response);
 
             $("#usDollar").text(response.rates.USD);
-
+            rates = response.rates;
+            console.log(rates);
+            
         })
 
+        
+
         //need to code the drop-down with var stuff
+
 
         var stuff = [{
                 "currency": "AED",
@@ -402,7 +412,24 @@
             }
         ];
 
-        // var currencyCode = ["JPY", "AED", "ARS", "AUD", "BGN", "BRL", "BSD", "CAD", "CHF", "CLP", "CNY", "COP", "CZK", "DKK", "DOP", "EGP", "EUR", "FJD", "GBP", "GTQ", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "ISK", "KRW", "KZT", "MXN", "MYR", "NOK", "NZD", "PAB", "PEN", "PHP", "PKR", "PLN", "PYG", "RON","RUB", "SAR", "SEK", "SGD", "THB", "TRY", "TWD", "UAH", "USD", "UYU", "VND", "ZAR"]; 
+        for (let index = 0; index < stuff.length; index++) {
+            const element = stuff[index];
+            var dropdown = document.getElementById("dropDownList");
+            var opt = document.createElement("option");
+            opt.text = element.country;
+            opt.value = element.currency;
+            dropdown.options.add(opt);
+
+        }
+
+        function countrySelected() {
+            var selection = document.getElementById("dropDownList").value;
+            document.getElementById("demo").innerHTML = "You selected: " + selection;
+            console.log(rates);
+            console.log(rates[selection]);
+        }
+
+        
     </script>
 
 </body>
