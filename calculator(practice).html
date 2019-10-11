@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator Practice</title>
+</head>
+
+<body>
+
+
+
+    <input id="boxA" type="text" oninput="calculator();" />
+    <input id="boxB" type="text" oninput="calculator();" />
+    <input id="boxC" type="text">
+
+
+    <script>
+        function calculator() {
+            var myBoxA = document.getElementById('boxA').value;
+            var myBoxB = document.getElementById('boxB').value;
+            var myBoxC = document.getElementById('boxC');
+            var myResult = myBoxA * myBoxB;
+            document.getElementById('boxC').value = myResult;
+
+        }
+    </script>
+
+</body>
+
+</html>

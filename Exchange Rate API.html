@@ -30,6 +30,10 @@
         <div id="usDiv"> $<span id="usDollar"></span></div>
     </div>
 
+    <!--new-->
+    <input id="boxA" type="text" oninput="countrySelected();" />
+    <input id="boxB" type="text" oninput="countrySelected();" />
+    <input id="boxC" type="text">
 
 
 
@@ -40,28 +44,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('select').formSelect();
-        });
-
+        })
         var queryURL = "https://api.exchangerate-api.com/v4/latest/USD"
         var rates;
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-
-            $("#usDollar").text(response.rates.USD);
-            rates = response.rates;
-            console.log(rates);
-
-        })
-
-
-
-        //need to code the drop-down with var stuff
-
-
         var stuff = [{
                 "currency": "AED",
                 "description": "UAE Dirham",
@@ -413,6 +398,19 @@
                 "country": "South Africa"
             }
         ];
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            $("#usDollar").text(response.rates.USD);
+            rates = response.rates;
+            console.log(rates);
+        //need to code the drop-down with var stuff
+
+        })
+    
 
         for (let index = 0; index < stuff.length; index++) {
             const element = stuff[index];
@@ -423,14 +421,26 @@
             dropdown.options.add(opt);
 
         }
+ 
 
         function countrySelected() {
-            var selection = document.getElementById("dropDownList").value;
+         var selection = document.getElementById("dropDownList").value;
             document.getElementById("demo").innerHTML = "You selected: " + selection;
             console.log(rates);
             console.log(rates[selection]);
-            $("#countryMoney").text("Their currency is valued at " + rates[selection] + " for every");
+            $("#countryMoney").text("Their currency is valued at " + rates[selection] + " for every")
+
+            //countrySelected()
+            var myBoxA = document.getElementById('boxA').value; //user input of amount of dollars to convert
+            var myBoxB = document.getElementById('boxB').value; //rates[selection]
+            var myBoxC = document.getElementById('boxC'); // results
+            var myResult = myBoxA *  rates[selection];
+            console.log("thus is in the calc:" + rates[selection])
+            document.getElementById('boxC').value = myResult;
+
         }
+    
+    
     </script>
 
 </body>
