@@ -25,10 +25,12 @@
                 <option value="1"></option>
             </select>
         </div>
-        <div id="usDiv">US Dollar $<span id="usDollar"></span></div>
+        <div id="demo"></div>
+        <div id="countryMoney"></div>
+        <div id="usDiv"> $<span id="usDollar"></span></div>
     </div>
 
-    <p id="demo"></p>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -52,10 +54,10 @@
             $("#usDollar").text(response.rates.USD);
             rates = response.rates;
             console.log(rates);
-            
+
         })
 
-        
+
 
         //need to code the drop-down with var stuff
 
@@ -427,9 +429,8 @@
             document.getElementById("demo").innerHTML = "You selected: " + selection;
             console.log(rates);
             console.log(rates[selection]);
+            $("#countryMoney").text("Their currency is valued at " + rates[selection] + " for every");
         }
-
-        
     </script>
 
 </body>
