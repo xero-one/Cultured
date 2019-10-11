@@ -18,7 +18,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-    // Performing GET requests to the OMDB API and logging the responses to the console
 
 
 
@@ -30,6 +29,8 @@
     $.ajax({
       type: "GET",
       url: url,
+      ali: "",
+      link: "",
       headers: {
         Authorization: "Bearer " + yelpKey
       },
@@ -44,17 +45,23 @@
     
     .then(function (response) {
 
+
       console.log(response);
       // Create img tag - <img>
-      var imageTag = $("<img>");
       // Add src attribute to the img tag - <img src="" > 
-      var url = response.businesses[0].image_url;
-      console.log(url)
-    //   "src" adds url to src attribute
-      imageTag.attr("src", url)
-      // to reference ids in html tag use #
-      $("#image").append(imageTag)
+      for(var i=0; i<5; i++){
+        var url = response.businesses[i].image_url;
+        var ali = response.businesses[i].alias;
+        var link = response.businesses[i].url;
+        console.log(url)
+        console.log(ali)
+        console.log(link)
+        var imageTag = $("<img>");
 
+        imageTag.attr("src", url)
+        $("#image").append(imageTag)
+      }
+ 
     })
     
     .catch(function (error) {
@@ -63,7 +70,7 @@
 }   
 
 // ---------------------------------------------------------
-    yelpQueryURL("Switzerland","en_SG")
+    yelpQueryURL("Switzerland","en_CH")
     console.log("Because our AJAX requests are asynchronous, this line of code will most likely log first");
     
   </script>
