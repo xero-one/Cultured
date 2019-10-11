@@ -5,10 +5,13 @@ $.ajax({
     method: "GET"
 }).then(function(res){
     console.log(res);
-    $(".countries").append(res.flag,"<br>");
-    $(".countries").append(res.capital,"<br>");
-    $(".countries").append(res.currencies[0].code,"<br>");
-    $(".countries").append(res.languages[0].name,"<br>");
-    $(".countries").append(res.population,"<br>");
-    $(".countries").append(res.timezones[0],"<br>");
+    var img = $("<img>");
+    img.attr("src",res.flag);
+    img.attr("style", "width: 80px; height: 30px;");
+    $(".countries").append(img,"<br>");
+    $(".countries").append("<i>Capital of the country: </i><strong>" + res.capital,"</strong><br>");
+    $(".countries").append("<i>Currency used: </i><strong>" + res.currencies[0].code,"</strong><br>");
+    $(".countries").append("<i>Language spoken: </i><strong>" + res.languages[0].name,"</strong><br>");
+    $(".countries").append("<i>Current population: </i><strong>" + (res.population).toLocaleString(),"</strong><br>");
+    $(".countries").append("<i>Country timezone: </i><strong>" + res.timezones[0],"</strong><br>");
 });
