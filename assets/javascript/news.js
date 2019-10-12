@@ -9,19 +9,23 @@ $("#country-name").change(function () {
     }).then(function (res) {
         // console.log(res);
         var articles = res.articles;
-        for (var i = 0; i < articles.length; i++) {
-            var news = $("<li>");
-    
-            var link = $("<a>");
-            link.attr("href", articles[i].url);
-            link.attr("target", "_blank");
-            news.append(link);
-            link.text(articles[i].title);
-    
-            // console.log(articles[i].title);
-            // console.log(articles[i].url);
-            news.append(link);
-            $(".country-news").append(news);
+        if (articles.length > 0) {
+            for (var i = 0; i < articles.length; i++) {
+                var news = $("<li>");
+
+                var link = $("<a>");
+                link.attr("href", articles[i].url);
+                link.attr("target", "_blank");
+                news.append(link);
+                link.text(articles[i].title);
+
+                // console.log(articles[i].title);
+                // console.log(articles[i].url);
+                news.append(link);
+                $(".country-news").append(news);
+            }
+        } else {
+            $(".country-news").append("<p> There are no current news about this country</p>");
         }
     });
 });
