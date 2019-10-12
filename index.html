@@ -155,11 +155,20 @@
                 <div class="col s12 currency">
                     <h4>Currency</h4>
                     <hr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                    <div class="input-field">
+                        <select autofocus id="dropDownList" onchange="countrySelected()">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+                    <div id="countryMoney"></div>
+                    <h6>Use Our Calculator to Convert Your Money</h6>
+                    <label for="boxA">Amount of Dollars to be converted</label>
+                    <input id="boxA" type="text" oninput="countrySelected();" />
+                    <label for="boxB">Value of Country's Currency</label>
+                    <input id="boxB" type="text" oninput="countrySelected();" disabled="disabled" />
+                    <label for="boxC">Converted Amount:</label>
+                    <input id="boxC" type="text" disabled="disabled">
                 </div>
             </div>
         </div>
@@ -1426,6 +1435,7 @@
     <script src="assets/javascript/app.js"></script>
     <script src="assets/javascript/countries.js"></script>
     <script src="assets/javascript/news.js"></script>
+    <script src="assets/javascript/currency.js"></script>
 </body>
 
 </html>
