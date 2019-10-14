@@ -37,6 +37,7 @@ th, td {
           <th>Image</th>
           <th>Restuarant</th>
           <th>Rating out of 5</th>
+          <th>Phone Number</th>
         </tr>
 
 
@@ -52,7 +53,7 @@ th, td {
 
 
 
-    function yelpQueryURL(userLocation, userLocale) {
+    function yelpQueryURL(userLocation) {
       console.log(userLocation);
       var url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search`;
       var yelpKey =
@@ -68,7 +69,7 @@ th, td {
         data: {
           term: "local restaurants",
           location: userLocation,
-          locale: userLocale,
+          // locale: userLocale,
           limit: 5
         }
 
@@ -79,17 +80,22 @@ th, td {
           // Create img tag - <img>
           // Add src attribute to the img tag - <img src="" > 
           for (var i = 0; i < 5; i++) {
+
+
             var url = response.businesses[i].image_url;
-            var ali = response.businesses[i].alias;
+            var ali = response.businesses[i].name;
             ali = ali.replace(/-/g, ' ');
             var link = response.businesses[i].url;
             var rating = response.businesses[i].rating;
+            var phone = response.businesses[i].phone;
             console.log(rating)
             console.log(url)
             console.log(ali)
             console.log(link)
+
             // create the row
-            var trow = $('<tr>'); 
+            var trow = $('<tr>');
+
             // add id attribute to the row
             trow.attr('id', "rowItem-" + i);
 
@@ -106,10 +112,16 @@ th, td {
             trow.append(tdata);
 
             var rdara = $('<td>');
-            rdara.text(rating);
+
+            rdara.html(
+              
+              '<a href="' + link + '" target = "_blank" >'   + rating + '</a>');
             trow.append(rdara);
 
-
+            var pdata = $('<td>');
+            pdata.text(phone);
+            
+            trow.append(pdata);
 
 
             $('#mytable').append(trow);
@@ -125,7 +137,7 @@ th, td {
 
     }
     // ---------------------------------------------------------
-    yelpQueryURL("Switzerland", "en_CH")
+    yelpQueryURL("Switzerland")
     console.log("Because our AJAX requests are asynchronous, this line of code will most likely log first");
 
   </script>
