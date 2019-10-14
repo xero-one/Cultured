@@ -14,6 +14,23 @@ html {
     height: 4vh;
 }
 
+<<<<<<< HEAD
+=======
+.countries {
+    background-color: #fff;
+    width: 30vw;
+    float: left;
+    margin-left: 2vw;
+}
+
+.news {
+    float: right;
+    background-color: #fff;
+    width: 30vw;
+    margin-right: 2vw;
+}
+
+>>>>>>> e67b45ade84be1dd88d421f7736e2c37e8efe8cf
 .logo-medium {
     display: block;
     background-image: url(../images/LogoFake.svg);
@@ -22,6 +39,10 @@ html {
     background-position: center;
     width: 100%;
     height: 8vh;
+<<<<<<< HEAD
+=======
+    margin-top: 5px;
+>>>>>>> e67b45ade84be1dd88d421f7736e2c37e8efe8cf
 }
 
 .logo-large {
@@ -36,7 +57,11 @@ html {
 
 .header {
     width: 100%;
+<<<<<<< HEAD
     height: 9vh;
+=======
+    height: 10vh;
+>>>>>>> e67b45ade84be1dd88d421f7736e2c37e8efe8cf
     background: white;
 }
 /*Special elements (start)--------------------------------*/
@@ -51,6 +76,14 @@ html {
     width: auto;
     height: 40vh;
 }
+<<<<<<< HEAD
+=======
+
+.blank-space-3 {
+    width: auto;
+    height: 5vh;
+}
+>>>>>>> e67b45ade84be1dd88d421f7736e2c37e8efe8cf
 /*Junk section (end)-----------------------------------*/
 
 
