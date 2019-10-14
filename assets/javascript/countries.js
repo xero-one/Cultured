@@ -5,7 +5,7 @@ $("#country-name").change(function () {
         url: "https://restcountries.eu/rest/v2/alpha/" + userQury,
         method: "GET"
     }).then(function (res) {
-        console.log(res);
+        // console.log(res);
         var img = $("<img>");
         img.attr("src", res.flag);
         img.attr("style", "width: 100px; height: 50px;");
