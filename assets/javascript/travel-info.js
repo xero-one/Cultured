@@ -1,4 +1,4 @@
-$("#country-name").change(function () {
+// $("#country-name").change(function () {
 	$(".arrow").on("click", function () {
 		var settings = {
 			"async": true,
@@ -25,18 +25,17 @@ $("#country-name").change(function () {
 			}
 		};
 
-		$.ajax(settings).then(function (response) {
-			console.log(response);
-		});
-
 		var userQury = $("#country-name option:selected").val();
 
 		$.ajax({
 			url: "https://restcountries.eu/rest/v2/alpha/" + userQury,
 			method: "GET"
 		}).then(function (res) {
-			console.log(res);
-			city = res.currencies[0].code;
+			// console.log(res);
+			// city = res.currencies[0].code;
+			$.ajax(settings).then(function (response) {
+				console.log(response);
+			});
 		});
 	});
-});
+// });
