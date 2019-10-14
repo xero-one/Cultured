@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+
+
+
 <html lang="en">
 
 <head>
@@ -6,17 +10,42 @@
   <title>Yelp restaurants</title>
   <link rel="stylesheet" href="assets/css/style.css">
 
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+
+
+
+<!-- comment -->
+
+
+
+
 </head>
 
 <body>
-    <p id="business">
-        
-    </p>
-    <table id="mytable" >
-    </table>
+  <p id="business"></p>
 
-    <div id="image">
-    </div>
+  <table id="mytable" >
+      <tr>
+          <th>Image</th>
+          <th>Restuarant</th>
+          <th>Rating out of 5</th>
+        </tr>
+
+
+
+
+
+  </table>
+
+  <div id="image"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
@@ -24,64 +53,83 @@
 
 
     function yelpQueryURL(userLocation, userLocale) {
-    console.log(userLocation);
-    var url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search`;
-    var yelpKey =
-      "DhUOw_5_G2RDrJSC6t0Y4rZzCx3INn7_0Y-A-LXSE6j4m7-9UEoSiyqEsJ5ATicLkHT40LansrK9dAW1tTlSHRsR2wV91Cc5MytlXNVR65R4bdlCS-Ekpk3vQ0OfXXYx";
-    $.ajax({
-      type: "GET",
-      url: url,
-      ali: "",
-      link: "",
-      headers: {
-        Authorization: "Bearer " + yelpKey
-      },
-      data: {
-        term: "local restaurants",
-        location: userLocation,
-        locale: userLocale,
-        limit: 5
-      }
-      
-    })
-    
-    .then(function (response) {
+      console.log(userLocation);
+      var url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search`;
+      var yelpKey =
+        "DhUOw_5_G2RDrJSC6t0Y4rZzCx3INn7_0Y-A-LXSE6j4m7-9UEoSiyqEsJ5ATicLkHT40LansrK9dAW1tTlSHRsR2wV91Cc5MytlXNVR65R4bdlCS-Ekpk3vQ0OfXXYx";
+      $.ajax({
+        type: "GET",
+        url: url,
+        ali: "",
+        link: "",
+        headers: {
+          Authorization: "Bearer " + yelpKey
+        },
+        data: {
+          term: "local restaurants",
+          location: userLocation,
+          locale: userLocale,
+          limit: 5
+        }
+
+      })
+
+        .then(function (response) {
+          console.log(response);
+          // Create img tag - <img>
+          // Add src attribute to the img tag - <img src="" > 
+          for (var i = 0; i < 5; i++) {
+            var url = response.businesses[i].image_url;
+            var ali = response.businesses[i].alias;
+            ali = ali.replace(/-/g, ' ');
+            var link = response.businesses[i].url;
+            var rating = response.businesses[i].rating;
+            console.log(rating)
+            console.log(url)
+            console.log(ali)
+            console.log(link)
+            // create the row
+            var trow = $('<tr>'); 
+            // add id attribute to the row
+            trow.attr('id', "rowItem-" + i);
+
+            var imageTag = $("<img>");
+            imageTag.attr("src", url);
+            imageTag.attr("style", "width: 50px; height; 40px");
+            
+            trow.append(imageTag);
+
+            // create cell data
+            var tdata = $('<td>');
+            tdata.text(ali);
+            
+            trow.append(tdata);
+
+            var rdara = $('<td>');
+            rdara.text(rating);
+            trow.append(rdara);
 
 
-      console.log(response);
-      // Create img tag - <img>
-      // Add src attribute to the img tag - <img src="" > 
-      for(var i=0; i<5; i++){
-        var url = response.businesses[i].image_url;
-        var ali = response.businesses[i].alias;
-        var link = response.businesses[i].url;
-        console.log(url)
-        console.log(ali)
-        console.log(link)
-        var imageTag = $("<img>");
 
 
-        imageTag.attr("src", url);
-        imageTag.attr("style", "width: 300px; height; 350px");
+            $('#mytable').append(trow);
+            // $("#image").append(imageTag);
+            // $('#rowItem-' + i).append(imageTag);∫
+            // $('#rowItem-' + i).append(tdata);
+          }
 
-        $("#image").append(imageTag)        
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
 
-      }
- 
-    })
-    
-    .catch(function (error) {
-        console.log(error)
-    }) 
-}   
-
-// ---------------------------------------------------------
-    yelpQueryURL("Switzerland","en_CH")
+    }
+    // ---------------------------------------------------------
+    yelpQueryURL("Switzerland", "en_CH")
     console.log("Because our AJAX requests are asynchronous, this line of code will most likely log first");
-    
+
   </script>
 
 </body>
 
 </html>
-
