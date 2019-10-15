@@ -5,5 +5,7 @@ $(document).ready(function () {
         $(".page-1").hide();
     });
     $('select').formSelect();
-    $("#country_name").text($("#country-name option:selected").text());
+    $(".arrow").on("click", function () {
+        $("#country_name").text($("#country-name option:selected").text());
+    });
 });
