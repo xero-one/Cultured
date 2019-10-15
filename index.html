@@ -1432,6 +1432,7 @@
         for (var i = 0; i < countryName.length; i++) {
             var opt = $("<option>");
             opt.attr("value", countryName[i].iso3);
+            opt.attr("data-iso2", countryName[i].iso2);
             opt.text(countryName[i].name);
             $("#country-name").append(opt);
         }
