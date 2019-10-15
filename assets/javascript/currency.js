@@ -359,10 +359,10 @@ $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function (response) {
-    console.log(response);
+    // console.log(response);
 
     rates = response.rates;
-    console.log(rates);
+    // console.log(rates);
 
 })
 for (let index = 0; index < stuff.length; index++) {
@@ -376,19 +376,19 @@ for (let index = 0; index < stuff.length; index++) {
 function countrySelected() {
     var selection = document.getElementById("dropDownList").value;
 
-    console.log(rates);
-    console.log(rates[selection]);
+    // console.log(rates);
+    // console.log(rates[selection]);
     $("#countryMoney").text("Currency is valued at " + rates[selection] + " for every 1 US Dollar")
     //countrySelected()
     var myBoxA = document.getElementById('boxA').value; //user input of amount of dollars to convert
     var myBoxB = document.getElementById('boxB').value; //rates[selection]
     document.getElementById('boxB').defaultValue = rates[selection]; //rates[selection]
-    console.log(myBoxB);
+    // console.log(myBoxB);
     myBoxB = rates[selection]
-    console.log(myBoxB);
+    // console.log(myBoxB);
     var myBoxC = document.getElementById('boxC'); // results
     var myResult = myBoxA * rates[selection];
-    console.log("thus is in the calc:" + rates[selection])
+    // console.log("thus is in the calc:" + rates[selection])
     document.getElementById('boxC').value = myResult;
 }
 
