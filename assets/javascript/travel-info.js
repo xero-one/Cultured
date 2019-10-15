@@ -21,7 +21,7 @@
 				"originPlace": "SFO-sky",
 				"destinationPlace": "LHR-sky",
 				"outboundDate": "2019-09-01",
-				"adults": "1"
+				"adults": "2"
 			}
 		};
 
