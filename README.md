@@ -24,6 +24,7 @@ Most travel applications do not include information about current events based o
 We added Yelp as our main API source provider for resturant information. One of the most common things to do outdoors is going out to eat so it was necessary to include this feature in our project. Some countries are not supported by Yelp but the majority of popular tourest countries are supported. 
 </p>
 
+
 <h3 align="center">Link to the <a href="https://bxxdyz.github.io/Cultured" target="_blank">Cultured project </a></h3>
   
 
